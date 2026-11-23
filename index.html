@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        margin: 0;
+        padding: 30px;
+        text-align: center;
+    }
+
+    h1 {
+        color: white;
+        font-size: 32px;
+    }
+
+    .section {
+        background: white;
+        width: 350px;
+        margin: 30px auto;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        font-size: 17px;
+        color: #555;
+    }
+
+    .container {
+        margin: 18px 0;
+        text-align: left;
+        font-weight: bold;
+        color: #333;
+    }
+
+    input {
+        width: 95%;
+        padding: 10px;
+        margin-top: 8px;
+        border: 1px solid #ccc;
+        border-radius: 7px;
+        box-sizing: border-box;
+        font-size: 15px;
+    }
+
+    input:focus {
+        border-color: #667eea;
+        outline: none;
+    }
+
+    button {
+        background: #667eea;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #4c5fd5;
+    }
+
+    .result {
+        display: none;
+        background: #f0f3ff;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 10px;
+        color: #333;
+        font-weight: bold;
+    }
+
+    footer {
+        margin-top: 20px;
+        color: #777;
+        font-size: 13px;
+    }
+</style>
+Step 3: Aapka HTML structure aisa hona chahiye
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result System</title>
+
+    <style>
+         body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        margin: 0;
+        padding: 30px;
+        text-align: center;
+    }
+
+    h1 {
+        color: white;
+        font-size: 32px;
+    }
+
+    .section {
+        background: white;
+        width: 350px;
+        margin: 30px auto;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+      h2 {
+        font-size: 17px;
+        color: #555;
+    }
+
+    .container {
+        margin: 18px 0;
+        text-align: left;
+        font-weight: bold;
+        color: #333;
+    }
+
+    input {
+        width: 95%;
+        padding: 10px;
+        margin-top: 8px;
+        border: 1px solid #ccc;
+        border-radius: 7px;
+        box-sizing: border-box;
+        font-size: 15px; }
+
+    input:focus {
+        border-color: #667eea;
+        outline: none;
+    }
+
+    button {
+        background: #667eea;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #4c5fd5;
+    } .result {
+        display: none;
+        background: #f0f3ff;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 10px;
+        color: #333;
+        font-weight: bold;
+    }
+
+    footer {
+        margin-top: 20px;
+        color: #777;
+        font-size: 13px;
+    }
+        
+    </style>
+
+
+
+
+
+</head>
+<body>
+    <h1>Student Result System</h1>
+    <div class="section">
+<h2>Tip: set Endsem =0 to see required marks</h2>
+
+    <div class="container">Assessment 1 (out of 25)
+    <input type="number" id="a1">
+</div>
+    <div class="container">Assessment 2 (out of 25)
+    <input type="number" id="a2">
+</div>
+
+<div class="container">Assessment 3 (out of 25)
+    <input type="number" id="a3">
+</div>
+
+<div class="container">Endsem (out of 100)
+    <input type="number" id="Endsem">
+</div>
+
+
+    <button onclick="calculateResult()">
+        Calculate Result
+    </button>
+    <div class="result" id="result">
+    <p id="total"></p>
+    <p id="Percentage"></p>
+    <p id="required"></p>
+    <p id="grade"></p>
+    <p id="highest"></p>
+    <p id="lowest"></p>
+    <p id="status"></p>
+    <footer>Made with U.N</footer>
+    <script>
+        function calculateResult(){
+            let a1 = document.getElementById("a1").value;
+           let a2 = document.getElementById("a2").value;
+            let a3 = document.getElementById("a3").value;
+            let Endsem = document.getElementById("Endsem").value
+          if (a1 === "" || a2 === "" || a3 === "" || Endsem === "") {
+            alert ("Please Enter all Marks");
+            return;
+          }
+    
+        
+        
+          a1=Number(a1);
+         a2=Number(a2);
+        a3=Number(a3);
+        Endsem=Number(Endsem);
+        if(
+             !Number.isFinite(a1) ||
+        !Number.isFinite(a2) ||
+        !Number.isFinite(a3) ||
+        !Number.isFinite(Endsem) ||
+        a1 < 0 || a1 >25 ||
+        a2 < 0 || a2 >25 ||
+        a3 < 0 || a3 >25 ||
+        Endsem < 0 || Endsem > 100
+        )
+
+
+
+        {
+            alert("Please Enter valid marks within the   given limits");
+            return;
+        }
+        let assemmentTotal = a1 + a2 +a3;
+        let total = assemmentTotal + Endsem;
+        let percentage = (total / 175) * 100;
+
+        let passingMarks =  70;
+        let requiredMarks = Math.max(0, passingMarks - assemmentTotal);
+        let grade;
+
+        
+
+if (percentage >= 80) {
+    grade = "A";
+}
+else if (percentage >= 60) {
+    grade = "B";
+}
+else if (percentage >= 40) {
+    grade = "C";
+}
+else {
+    grade = "Fail";
+}
+
+
+
+  document.getElementById("total").innerHTML="Total Marks:" 
+  + total + "/ 175";
+
+document.getElementById("Percentage").innerHTML =
+"percentage:" + percentage.toFixed(2) + "%";
+
+document.getElementById("required").innerHTML =
+ Endsem ===0
+  ?"Required Endsem Marks:" + requiredMarks +  " /100 (for 40% overall)" 
+ :"Endsem Marks" + Endsem +"/100";
+ document.getElementById("grade").innerHTML =
+ "Grade:" + grade;
+ document.getElementById("result").style.display = "block";
+
+}
+</script>
+
+</body>
+
+</html>
